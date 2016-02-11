@@ -11,9 +11,13 @@ class Warehouse(object):
 		# super(Warehouse, self).__init__()
 		self.x = x
 		self.y = y
-		self.stock = []
+		self.stock = {}
 
 	def addStock(self, product):
-		
+		pType = product.pType
+		if pType not in stock:
+			self.stock[pType] = []
+		self.stock[pType].append(product)
+
 		
 		
