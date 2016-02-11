@@ -1,3 +1,5 @@
+import math
+
 class Product(object):
 	"""docstring for Product"""
 	def __init__(self, weight, pType):
@@ -19,6 +21,9 @@ class Warehouse(object):
 		if pType not in self.stock:
 			self.stock[pType] = []
 		self.stock[pType].append(product)
+
+	def getCoords(self):
+		return (self.x, self.y)
 		
 class Order(object):
 	"""docstring for Order"""
@@ -29,6 +34,9 @@ class Order(object):
 		self.destY = destY
 		self.pType = pType
 
+	def getCoords(self):
+		return (self.destX, self.destY)
+
 class Drone(object):
 	"""docstring for Drone"""
 	def __init__(self, droneID, x, y):
@@ -36,15 +44,22 @@ class Drone(object):
 		self.id = droneID
 		self.currentX = x
 		self.currentY = y
+		self.targetX = None
+		self.targetY = None
 
 	def updatePos(self):
 		self.currentX = self.targetX
 		self.currentY = self.targetY
 
-	def updateTarget(self, targetX, targetY):
+	def setTarget(self, targetX, targetY):
+		updatePos(self)
 		self.targetX = targetX
 		self.targetY = targetY
+		dist = math.sqrt((startX - endX)**2 + (startY - endY)**2)
+		self.timeToTarget = ceil(dist)
 
-	def setTimeToTarget(self, time):
-		self.timeToTarget = time
+	def timeStep(self):
+		self.timeToTarget -= 1
+	
+
 		
