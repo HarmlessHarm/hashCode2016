@@ -15,14 +15,7 @@ class Warehouse(object):
 		self.stock = {}
 
 	def addStock(self, product):
-<<<<<<< HEAD
-		return
-=======
 		pType = product.pType
 		if pType not in stock:
 			self.stock[pType] = []
 		self.stock[pType].append(product)
-
-		
-		
->>>>>>> origin/master
