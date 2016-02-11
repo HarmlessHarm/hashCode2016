@@ -1,3 +1,4 @@
+import classes
 
 parameters = {}
 productsInfo = {}
@@ -5,7 +6,6 @@ warehousesInfo = {}
 
 def main():
     readFile("./input/mother_of_all_warehouses.in")
-
 
 def readFile(inputfile):
     # import file
@@ -27,8 +27,18 @@ def readFile(inputfile):
             if i == 3:
                 warehousesInfo["nWarehouses"] = int(line)
 
-    # print parameters
 
+            if i > 3 and i <= (3 + warehousesInfo["nWarehouses"] * 2):
+                print i
+                # get coordinate
+                if i % 2 == 0:
+                    getWarehouseInfo(line)
+                else:
+                    print i
+                    # n of items per product type
+
+def getWarehouseInfo(line):
+    warehousesInfo["warehouseWeights"] = [int(n) for n in line.split()]
 
 
 def getParameters(line):

@@ -7,6 +7,7 @@ class Product(object):
 
 class Warehouse(object):
 	"""docstring for Warehouse"""
+
 	def __init__(self, x, y):
 		# super(Warehouse, self).__init__()
 		self.x = x
@@ -14,6 +15,4 @@ class Warehouse(object):
 		self.stock = []
 
 	def addStock(self, product):
-		
-		
-		
+		return
