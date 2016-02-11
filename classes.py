@@ -7,32 +7,36 @@ class Product(object):
 
 class Warehouse(object):
 	"""docstring for Warehouse"""
-	def __init__(self, x, y):
+	def __init__(self, whID, x, y):
 		# super(Warehouse, self).__init__()
+		self.id = whID
 		self.x = x
 		self.y = y
 		self.stock = {}
 
 	def addStock(self, product):
 		pType = product.pType
-		if pType not in stock:
+		if pType not in self.stock:
 			self.stock[pType] = []
 		self.stock[pType].append(product)
 
 		
 class Order(object):
 	"""docstring for Order"""
-	def __init__(self, destX, destY, pType):
+	def __init__(self, orderID, destX, destY, pType):
 		# super(Order, self).__init__()
+		self.id = orderID
 		self.destX = destX
 		self.destY = destY
 		self.pType = pType
 
 class Drone(object):
 	"""docstring for Drone"""
-	def __init__(self):
+	def __init__(self, droneID, x, y):
 		# super(Drone, self).__init__()
-		# self.arg = arg
+		self.id = droneID
+		self.currentX = x
+		self.currentY = y
 
 	def updatePos(self):
 		self.currentX = self.targetX
