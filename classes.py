@@ -19,7 +19,6 @@ class Warehouse(object):
 		if pType not in self.stock:
 			self.stock[pType] = []
 		self.stock[pType].append(product)
-
 		
 class Order(object):
 	"""docstring for Order"""
@@ -48,5 +47,4 @@ class Drone(object):
 
 	def setTimeToTarget(self, time):
 		self.timeToTarget = time
-		
 		
