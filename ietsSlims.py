@@ -1,4 +1,5 @@
 import classes, math, random
+import HashCode2016 as hc
 
 def createData():
 	dataDict = {
@@ -57,12 +58,18 @@ def getDist((startX, startY), (endX, endY)):
 def orderDrones(data):
 	warehouses = data['warehouses']
 	drone = data['drones'][0].id
+	printList = []
 	for order in data['orders']:
-		
-		warehouse = getWh(order, warehouses)
-		print str(drone)+"L"+str(warehouse.id)+str(order.pType)+"1"
-		print str(drone)+"D"+str(order.id)+str(order.pType)+"1"
 
-data = createData()
+		warehouse = getWh(order, warehouses)
+		printList.append(str(drone)+"L"+str(warehouse.id)+str(order.pType)+"1")
+		printList.append(str(drone)+"D"+str(order.id)+str(order.pType)+"1")
+	with open("output.out", 'w') as writeFile:
+		for line in printList:
+			writeFile.write(line+"\n")
+
+
+data = hc.main()
+# data = createData()
 
 orderDrones(data)

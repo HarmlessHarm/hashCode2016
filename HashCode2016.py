@@ -19,7 +19,7 @@ nOrderItems = []
 itemsOfType = []
 
 def main():
-    readFile("./input/mother_of_all_warehouses.in")
+    readFile("./mother_of_all_warehouses.in")
 
     # print(parameters)
     # print(productsInfo)
@@ -35,8 +35,8 @@ def main():
             orderList.append(newOrder)
     print sum(nOrderItems)
     print len(orderList)
-
-    for i in
+    return {'orders': orderList, 'warehouses': warehouses}
+    # for i in
     # print(warehousesInfo)
     # print(ordersInfo)
 
